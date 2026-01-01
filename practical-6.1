@@ -1,0 +1,43 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :  Java program on arrays */
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class ArraySort {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = input.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        System.out.println("\nArray in ascending order:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+        input.close();
+    }
+}
+
+
+/* 
+   ==========================================================  Output ========================================================== 
+  
+Enter the number of elements in the array: 5
+Enter 5 integers:
+34 12 56 2 89
+
+Array in ascending order:
+2 12 34 56 89
+   
+*/

@@ -1,0 +1,79 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :   Java program on Exception Handling */
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class CafeteriaRating {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] responses = new int[20];
+        int[] freq = new int[6]; // index 1–5 used
+
+        System.out.println("Enter ratings of 20 students (1 to 5):");
+
+        for (int i = 0; i < 20; i++) {
+            while (true) {
+                try {
+                    System.out.print("Rating " + (i + 1) + ": ");
+                    int rating = sc.nextInt();
+
+                    // Check valid rating
+                    if (rating < 1 || rating > 5) {
+                        throw new Exception("Rating must be between 1 and 5!");
+                    }
+
+                    responses[i] = rating;
+                    freq[rating]++;
+                    break; // exit loop when input is valid
+                }
+                catch (InputMismatchException e) {
+                    System.out.println("Invalid Input! Enter only an integer.");
+                    sc.nextLine(); // clear invalid input
+                }
+                catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+
+        // Display frequency
+        System.out.println("\n--- Rating Frequency ---");
+        for (int rating = 1; rating <= 5; rating++) {
+            System.out.println("Rating " + rating + " : " + freq[rating]);
+        }
+
+        sc.close();
+    }
+}
+
+============OUTPUT============================
+Enter ratings of 20 students (1 to 5):
+Rating 1: 1
+Rating 2: 2
+Rating 3: 5
+Rating 4: 3
+Rating 5: 4
+Rating 6: 2
+Rating 7: 5
+Rating 8: 5
+Rating 9: 3
+Rating 10: 1
+Rating 11: 4
+Rating 12: 4
+Rating 13: 2
+Rating 14: 2
+Rating 15: 5
+Rating 16: 3
+Rating 17: 1
+Rating 18: 5
+Rating 19: 4
+Rating 20: 2
+
+ --- Rating Frequency ---
+Rating 1 : 3
+Rating 2 : 6
+Rating 3 : 3
+Rating 4 : 4
+Rating 5 : 4   */

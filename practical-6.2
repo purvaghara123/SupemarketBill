@@ -1,0 +1,35 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :  Java program on arrays */
+
+import java.util.Random;
+
+public class DiceFrequency {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int[] frequency = new int[6]; // Index 0→face 1, Index 5→face 6
+
+        // Roll dice 100 times
+        for (int roll = 1; roll <= 100; roll++) {
+            int face = rand.nextInt(6) + 1; // Generates numbers 1–6
+            frequency[face - 1]++;
+        }
+
+        // Display frequency of each face
+        System.out.println("Face\tFrequency");
+        for (int i = 0; i < 6; i++) {
+            System.out.println((i + 1) + "\t" + frequency[i]);
+        }
+    }
+}
+
+==========================================================  Output ========================================================== 
+  
+Face	Frequency
+1	        18
+2	        14
+3	        20
+4	        15
+5	        16
+6	        17
+   

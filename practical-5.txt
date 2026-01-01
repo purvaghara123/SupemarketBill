@@ -1,0 +1,88 @@
+/*  Name: Purva Mukund Gharapurkar
+    Class: SyCSE-A | Batch: S-03 | Roll no.: 149
+    AIM :Java program on control statement */
+
+import java.util.Scanner;
+
+public class RetailStore {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int productNumber;
+        int quantity;
+        double totalRetailValue = 0.0; 
+        double price = 0.0;            
+
+        System.out.println("Online Retail Store Billing System");
+        System.out.println("----------------------------------");
+        System.out.println("Product List:");
+        System.out.println("1. $2.98\n2. $4.50\n3. $9.98\n4. $4.49\n5. $6.87");
+        System.out.println("Enter -1 to stop.\n");
+
+        // Sentinel-controlled loop
+        while (true) {
+            System.out.print("Enter product number (1–5) or -1 to quit: ");
+            productNumber = input.nextInt();
+
+            if (productNumber == -1) {
+                break; // exit loop when user enters -1
+            }
+
+            System.out.print("Enter quantity sold: ");
+            quantity = input.nextInt();
+
+            // Determine price based on product number
+            switch (productNumber) {
+                case 1:
+                    price = 2.98;
+                    break;
+                case 2:
+                    price = 4.50;
+                    break;
+                case 3:
+                    price = 9.98;
+                    break;
+                case 4:
+                    price = 4.49;
+                    break;
+                case 5:
+                    price = 6.87;
+                    break;
+                default:
+                    System.out.println("Invalid product number! Please enter 1–5.");
+                    continue; // skip this iteration if invalid
+            }
+            totalRetailValue += price * quantity;
+        }
+
+        System.out.printf("\nTotal retail value of all products sold: $%.2f\n", totalRetailValue);
+
+        input.close();
+    }
+}
+
+
+/* 
+   ==========================================================  Output ========================================================== 
+  
+Online Retail Store Billing System
+----------------------------------
+Product List:
+1. $2.98
+2. $4.50
+3. $9.98
+4. $4.49
+5. $6.87
+Enter -1 to stop.
+
+Enter product number (1–5) or -1 to quit: 1
+Enter quantity sold: 3
+Enter product number (1–5) or -1 to quit: 4
+Enter quantity sold: 2
+Enter product number (1–5) or -1 to quit: 5
+Enter quantity sold: 1
+Enter product number (1–5) or -1 to quit: -1
+
+Total retail value of all products sold: $24.31
+   
+*/

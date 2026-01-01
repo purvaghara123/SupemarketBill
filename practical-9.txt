@@ -1,0 +1,60 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :  Java Program on Inheritance*/
+
+class Student {
+    protected String name;
+    protected int roll;
+
+    public Student(String name, int roll) {
+        this.name = name;
+        this.roll = roll;
+    }
+
+    public void displayStudent() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + roll);
+    }
+}
+
+class Marks extends Student {
+    private int m1, m2, m3;
+
+    public Marks(String name, int roll, int m1, int m2, int m3) {
+        super(name, roll);  // calling parent constructor
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+
+    public int totalMarks() {
+        return m1 + m2 + m3;
+    }
+
+    public void displayMarks() {
+        System.out.println("Marks: " + m1 + ", " + m2 + ", " + m3);
+        System.out.println("Total: " + totalMarks());
+    }
+}
+
+public class InheritanceTest {
+    public static void main(String[] args) {
+
+        Marks obj = new Marks("Sarthak", 101, 85, 90, 88);
+
+        System.out.println("--- Student Details ---");
+        obj.displayStudent();
+
+        System.out.println("\n--- Marks Details ---");
+        obj.displayMarks();
+    }
+}
+
+===================================OUTPUT===================================================
+--- Student Details ---
+Name: Sarthak
+Roll Number: 101
+
+--- Marks Details ---
+Marks: 85, 90, 88
+Total: 263

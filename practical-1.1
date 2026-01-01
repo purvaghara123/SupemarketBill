@@ -1,0 +1,48 @@
+/* Name: Purva Mukund Gharapurkar
+Class: SyCSE-A | Batch: S-03 | Roll no.: 149
+Aim: program on operators in java */
+
+import java.util.Scanner;
+
+public class Operation
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter first number");
+        int num1 = sc.nextInt();
+        System.out.println("Enter Second number");
+        int num2 = sc.nextInt();
+        System.out.println("Enter third number");
+        int num3 = sc.nextInt();
+        int sum = num1+num2+num3;
+        double avg = (double)sum/3.0;
+        int product = num1*num2*num3;
+        int smallest = Math.min(Math.min(num1, num2),num3);
+        int largest = Math.max(Math.max(num1, num2),num3);
+        
+        System.out.println("\nResults: ");
+        System.out.println("Sum: "+sum);
+        System.out.println("average: "+avg);
+        System.out.println("product: "+product);
+        System.out.println("Smallest: "+smallest);
+        System.out.println("largest: "+largest);
+        sc.close();
+    }
+}
+
+=====================OUTPUT=======================
+
+Enter first number
+10
+Enter Second number
+20
+Enter third number
+30
+
+Results: 
+Sum: 60
+average: 20.0
+product: 6000
+Smallest: 10
+largest: 30

@@ -1,0 +1,88 @@
+/*  Name: Purva Mukund Gharapurkar
+    Class: SyCSE-A | Batch: S-03 | Roll no.: 149
+    AIM : Java program on counter-controlled repetition */
+
+import java.util.Scanner;
+
+public class GradeBook
+{
+  private String courseName;
+  public GradeBook(String name)
+  {
+     courseName = name;
+  }
+  public void setCourseName(String name)
+  {
+      courseName = name;
+  }
+  public String getCourseName()
+  {
+     return courseName;
+  }
+  public void displayMessage()
+  {
+     System.out.printf("Welcome to grade book for\n%s!\n\n",getCourseName());
+  }
+  public void determineClassAverage()
+  {
+     Scanner input= new Scanner(System.in);
+     int total;
+     int gradeCounter;
+     int grade;
+     double average;
+
+     total=0;
+     gradeCounter=0;
+
+     System.out.print("Enter grade or -1 to quit:");
+     grade= input.nextInt();
+     
+    while(grade!= -1)
+    {
+          total= total+grade;
+          gradeCounter= gradeCounter +1;
+          System.out.print("Enter grade or -1 to quit:");
+          grade= input.nextInt();
+    }
+     if (gradeCounter !=0)
+    {
+        average= (double) total/gradeCounter;
+        System.out.printf("\nTotal of the %d grades entered is %d\n", gradeCounter, total);
+        System.out.printf("Class average is %.2f\n");
+    }
+    else
+    {
+        System.out.println("No grades were entered");
+    }
+  }
+}
+
+public class GradeBookTest
+{
+  public static void main(String[] args)
+  {
+     GradeBook myGradeBook= new GradeBook(" CS101 Introduction to Java Programming");
+     myGradeBook.displayMessage();
+     myGradeBook.determineClassAverage();
+  }
+}
+
+
+===================================OUTPUT============================================
+
+Welcome to the grade book for
+ CS101 Introduction to Java Programming!
+
+Enter grade10
+Enter grade15
+Enter grade13
+Enter grade12
+Enter grade19
+Enter grade10
+Enter grade20
+Enter grade25
+Enter grade34
+Enter grade32
+
+ Total of all 10grades is 190
+Class average is 19

@@ -1,0 +1,98 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :  Java program on arrays */
+
+public class Card
+{
+ private String face;
+ private String suit;
+
+public Card(String cardFace, String cardSuit)
+{
+ face=cardFace;
+ suit=cardSuit;
+}
+
+public String toString()
+{
+ return face + " of " + suit;
+}
+}
+
+import java.util.Random;
+
+public class DeckOfCards {
+
+    private Card[] deck;
+    private int currentCard;
+    private static final int NUMBER_OF_CARDS = 52;
+    private static final Random randomNumbers = new Random();
+
+    public DeckOfCards() {
+        String[] faces = { "Ace", "Deuce", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+        String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+
+        deck = new Card[NUMBER_OF_CARDS];
+        currentCard = 0;
+
+        for (int count = 0; count < deck.length; count++) {
+            deck[count] = new Card(faces[count % 13], suits[count / 13]);
+        }
+    }
+
+    public void shuffle() {
+        currentCard = 0;
+
+        for (int first = 0; first < deck.length; first++) {
+            int second = randomNumbers.nextInt(NUMBER_OF_CARDS);
+
+            Card temp = deck[first];
+            deck[first] = deck[second];
+            deck[second] = temp;
+        }
+    }
+
+    public Card dealCard() {
+        if (currentCard < deck.length) {
+            return deck[currentCard++];
+        } else {
+            return null;
+        }
+    }
+}
+
+
+public class DeckOfCardsTest {
+
+    public static void main(String[] args) {
+
+        DeckOfCards myDeckOfCards = new DeckOfCards();
+        myDeckOfCards.shuffle();
+
+        for (int i = 1; i <= 52; i++) {
+
+            System.out.printf("%-19s", myDeckOfCards.dealCard());
+
+            if (i % 4 == 0) {
+                System.out.println();
+            }
+        }
+    }
+}
+
+
+==============================OUTPUT=======================================
+
+Queenof Spades     Deuceof Clubs      Eightof Clubs      Kingof Diamonds
+Fourof Clubs       Fiveof Clubs       Nineof Diamonds    Jackof Clubs
+Queenof Clubs      Queenof Diamonds   Sixof Diamonds     Fiveof Diamonds
+Fourof Hearts      Sevenof Diamonds   Fourof Spades      Sixof Hearts
+Sixof Spades       Jackof Diamonds    Eightof Spades     Nineof Clubs
+Aceof Diamonds     Deuceof Hearts     Eightof Hearts     Threeof Spades
+Aceof Hearts       Threeof Hearts     Sevenof Hearts     Jackof Spades
+Sevenof Clubs      Aceof Spades       Fiveof Spades      Tenof Spades
+Kingof Spades      Eightof Diamonds   Fiveof Hearts      Fourof Diamonds
+Tenof Hearts       Aceof Clubs        Sevenof Spades     Nineof Spades
+Sixof Clubs        Deuceof Spades     Threeof Diamonds   Deuceof Diamonds
+Threeof Clubs      Nineof Hearts      Tenof Diamonds     Queenof Hearts
+Kingof Hearts      Tenof Clubs        Kingof Clubs       Jackof Hearts

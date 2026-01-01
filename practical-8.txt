@@ -1,0 +1,91 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM : Java program on classes and objects  */
+
+class Time {
+    private int hours;
+    private int minutes;
+    private int seconds;
+
+    Time() {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+    }
+
+    Time(int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+        normalize();
+    }
+
+    public void setTime(int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+        normalize();
+    }
+
+    private void normalize() {
+        if (seconds >= 60) {
+            minutes += seconds / 60;
+            seconds = seconds % 60;
+        }
+
+        if (minutes >= 60) {
+            hours += minutes / 60;
+            minutes = minutes % 60;
+        }
+
+        hours = hours % 24; // keep hours within 24-hour format
+    }
+
+    // Method to display time
+    public void display() {
+        System.out.printf("%02d:%02d:%02d\n", hours, minutes, seconds);
+    }
+
+    // Method to add two time objects
+    public Time add(Time t) {
+        Time result = new Time();
+        result.hours = this.hours + t.hours;
+        result.minutes = this.minutes + t.minutes;
+        result.seconds = this.seconds + t.seconds;
+
+        result.normalize();
+        return result;
+    }
+}
+
+
+// Main class to execute
+public class TimeTest {
+    public static void main(String[] args) {
+
+        // Creating objects using constructors
+        Time t1 = new Time(5, 45, 50);
+        Time t2 = new Time(3, 30, 30);
+
+        System.out.println("Time 1:");
+        t1.display();
+
+        System.out.println("Time 2:");
+        t2.display();
+
+        // Adding two time objects
+        Time t3 = t1.add(t2);
+
+        System.out.println("Sum of Time 1 and Time 2:");
+        t3.display();
+    }
+}
+
+ ============================= OUTPUT====================================================
+
+Time 1:
+05:45:50
+Time 2:
+03:30:30
+Sum of Time 1 and Time 2:
+09:16:20

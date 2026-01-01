@@ -1,0 +1,79 @@
+/*  Name: Purva Mukund Gharapurkar
+    Class: SyCSE-A | Batch: S-03 | Roll no.: 149
+    AIM :  Java program on Constructors */
+
+public class Account 
+{
+    private double balance; 
+    public Account(double initialBalance) 
+   {
+        if (initialBalance > 0.0) 
+	{
+            balance = initialBalance;
+        }
+	else 
+	{
+            balance = 0.0;
+        }
+    }
+
+     public void credit(double amount) {
+        if (amount > 0) {
+            balance = balance + amount;
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void debit(double amount) {
+        if (amount <= balance) {
+            balance = balance - amount;
+            System.out.println("Withdrawal of ₹" + amount + " successful.");
+        } else {
+            System.out.println("Debit amount exceeded account balance.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+import java.util.Scanner;
+
+public class AccountTest {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter initial account balance: ");
+        double initialBalance = input.nextDouble();
+        Account myAccount = new Account(initialBalance);
+
+        System.out.println("Current balance: ₹" + myAccount.getBalance());
+
+        System.out.print("Enter amount to withdraw: ");
+        double withdrawAmount = input.nextDouble();
+        myAccount.debit(withdrawAmount);
+        System.out.println("Updated balance: ₹" + myAccount.getBalance());
+
+        input.close();
+    }
+}
+
+
+======================  Output ==========================
+
+Output 1: Successful Withdrawal
+
+Enter initial account balance: 1000
+Current balance: ₹1000.0
+Enter amount to withdraw: 400
+Withdrawal of ₹400.0 successful.
+Updated balance: ₹600.0
+
+Output 2: Withdrawal Exceeds Balance
+Enter initial account balance: 500
+Current balance: ₹500.0
+Enter amount to withdraw: 700
+Debit amount exceeded account balance.
+Updated balance: ₹500.0

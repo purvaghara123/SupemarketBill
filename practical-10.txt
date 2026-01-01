@@ -1,0 +1,46 @@
+/*  Name : Purva Mukund Gharapurkar
+    Batch : S3 | Roll No : 149 | Div : SYCSE-A
+    AIM :  Program on operators in Polymorphism
+ */
+
+class Shape {
+    public void area() {
+        System.out.println("Area of Shape");
+    }
+}
+
+class Circle extends Shape {
+    public void area() {
+        System.out.println("Area of Circle = π × r × r");
+    }
+}
+
+class Rectangle extends Shape {
+    public void area() {
+        System.out.println("Area of Rectangle = length × breadth");
+    }
+}
+
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+
+        Shape s; // reference of parent class
+
+        s = new Shape();
+        s.area();  // calls parent version
+
+        s = new Circle();
+        s.area();  // calls Circle's overridden version
+
+        s = new Rectangle();
+        s.area();  // calls Rectangle's overridden version
+    }
+}
+
+/* =================================OUTPUT=============================================================
+
+Area of Shape
+Area of Circle = π × r × r
+Area of Rectangle = length × breadth
+
+ */
